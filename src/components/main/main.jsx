@@ -1,63 +1,38 @@
+import {v4 as uuidv4} from 'uuid';
 import React from 'react';
 import PropTypes from 'prop-types';
-import MovieCard from '../movie-card/movie-card';
+import MovieCard from '../movie_card/movie_card';
+import Movies from '../movies/movies';
+import Menu from '../menu/menu';
+import PageHeader from '../page_header/page_header';
+import PageBackground from '../page_background/page_background';
+import ShowMore from '../btn_show_more/show_more';
+import PageFooter from '../page_footer/page_footer';
 
-const Main = ({title, genre, year, titles}) => {
+const renderLists = (value, callbackFunction) => value.map((item, i) => callbackFunction(item, i));
+
+
+const Main = ({title, genre, year, titles, genres, avatar, bgImage, showMoreBtn}) => {
+    
+  const getMovies = (item) => <Movies key = {uuidv4()} title={item}/>;
+  const getGenresList = (item) => <Menu key = {uuidv4()} genre = {item}/>;
+  const getMovieCard = <MovieCard key = {uuidv4()} title = {title} genre = {genre} year = {year}/>;
+  const getPageHeader = <PageHeader key = {uuidv4()} avatar = {avatar}/>;
+  const getBgImage = <PageBackground key = {uuidv4()} bgImage = {bgImage}/>;
+  const getShowMoreBtn = <ShowMore key = {uuidv4()} showMoreBtn = {showMoreBtn}/>;
+  const getPageFooter = <PageFooter key = {uuidv4()}/>;
+
+  const renderMovies = renderLists(titles, getMovies);
+  const renderGenres = renderLists(genres, getGenresList);
+
+
   return (
-    <React.Fragment>
+    <>
       <section className="movie-card">
-        <div className="movie-card__bg">
-          <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel" />
-        </div>
-
+        {getBgImage}
         <h1 className="visually-hidden">WTW</h1>
-
-        <header className="page-header movie-card__head">
-          <div className="logo">
-            <a className="logo__link">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </a>
-          </div>
-
-          <div className="user-block">
-            <div className="user-block__avatar">
-              <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
-            </div>
-          </div>
-        </header>
-
-        <div className="movie-card__wrap">
-          <div className="movie-card__info">
-            <div className="movie-card__poster">
-              <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218" height="327" />
-            </div>
-
-            <div className="movie-card__desc">
-              <h2 className="movie-card__title">{title}</h2>
-              <p className="movie-card__meta">
-                <span className="movie-card__genre">{genre}</span>
-                <span className="movie-card__year">{year}</span>
-              </p>
-
-              <div className="movie-card__buttons">
-                <button className="btn btn--play movie-card__button" type="button">
-                  <svg viewBox="0 0 19 19" width="19" height="19">
-                    <use xlinkHref="#play-s"></use>
-                  </svg>
-                  <span>Play</span>
-                </button>
-                <button className="btn btn--list movie-card__button" type="button">
-                  <svg viewBox="0 0 19 20" width="19" height="20">
-                    <use xlinkHref="#add"></use>
-                  </svg>
-                  <span>My list</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+        {getPageHeader}
+        {getMovieCard}
       </section>
 
       <div className="page-content">
@@ -65,64 +40,17 @@ const Main = ({title, genre, year, titles}) => {
           <h2 className="catalog__title visually-hidden">Catalog</h2>
 
           <ul className="catalog__genres-list">
-            <li className="catalog__genres-item catalog__genres-item--active">
-              <a href="#" className="catalog__genres-link">All genres</a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Comedies</a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Crime</a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Documentary</a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Dramas</a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Horror</a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Kids & Family</a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Romance</a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Sci-Fi</a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Thrillers</a>
-            </li>
+            {renderGenres}
           </ul>
 
           <div className="catalog__movies-list">
-            {
-              titles.map((item, i) => <MovieCard key = {item + i} title={item}/>)
-            }
+            {renderMovies}
           </div>
-
-          <div className="catalog__more">
-            <button className="catalog__button" type="button">Show more</button>
-          </div>
+          {getShowMoreBtn}
         </section>
-
-        <footer className="page-footer">
-          <div className="logo">
-            <a className="logo__link logo__link--light">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </a>
-          </div>
-
-          <div className="copyright">
-            <p>© 2019 What to watch Ltd.</p>
-          </div>
-        </footer>
+        {getPageFooter}
       </div>
-    </React.Fragment>
+    </>
   );
 };
 
@@ -130,7 +58,11 @@ Main.propTypes = {
   title: PropTypes.string.isRequired,
   genre: PropTypes.string.isRequired,
   year: PropTypes.string.isRequired,
-  titles: PropTypes.array.isRequired
+  titles: PropTypes.array.isRequired,
+  genres: PropTypes.array.isRequired,
+  avatar: PropTypes.array.isRequired,
+  bgImage: PropTypes.array.isRequired,
+  showMoreBtn: PropTypes.string.isRequired
 };
 
 export default Main;
