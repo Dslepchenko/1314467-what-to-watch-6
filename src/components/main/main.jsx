@@ -13,7 +13,6 @@ const renderLists = (value, callbackFunction) => value.map((item, i) => callback
 
 
 const Main = ({title, genre, year, titles, genres, avatar, bgImage, showMoreBtn}) => {
-    
   const getMovies = (item) => <Movies key = {uuidv4()} title={item}/>;
   const getGenresList = (item) => <Menu key = {uuidv4()} genre = {item}/>;
   const getMovieCard = <MovieCard key = {uuidv4()} title = {title} genre = {genre} year = {year}/>;
@@ -55,6 +54,7 @@ const Main = ({title, genre, year, titles, genres, avatar, bgImage, showMoreBtn}
 };
 
 Main.propTypes = {
+
   title: PropTypes.string.isRequired,
   genre: PropTypes.string.isRequired,
   year: PropTypes.string.isRequired,
