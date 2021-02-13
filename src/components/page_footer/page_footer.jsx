@@ -1,7 +1,6 @@
 import React from 'react';
 
 const PageFooter = () =>
-
   <footer className="page-footer">
     <div className="logo">
       <a className="logo__link logo__link--light">

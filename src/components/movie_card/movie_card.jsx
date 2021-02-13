@@ -1,19 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const MovieCard = ({title, genre, year}) =>
-
+const MovieCard = ({poster, name, released, genre}) =>
   <div className="movie-card__wrap">
     <div className="movie-card__info">
       <div className="movie-card__poster">
-        <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218" height="327" />
+        <img src={poster} alt={name} width="218" height="327" />
       </div>
 
       <div className="movie-card__desc">
-        <h2 className="movie-card__title">{title}</h2>
+        <h2 className="movie-card__title">{name}</h2>
         <p className="movie-card__meta">
           <span className="movie-card__genre">{genre}</span>
-          <span className="movie-card__year">{year}</span>
+          <span className="movie-card__year">{released}</span>
         </p>
 
         <div className="movie-card__buttons">
@@ -35,9 +34,10 @@ const MovieCard = ({title, genre, year}) =>
   </div>;
 
 MovieCard.propTypes = {
-  title: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   genre: PropTypes.string.isRequired,
-  year: PropTypes.string.isRequired
+  released: PropTypes.number.isRequired,
+  poster: PropTypes.string.isRequired
 };
 
 export default MovieCard;

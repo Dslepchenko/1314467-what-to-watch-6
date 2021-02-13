@@ -1,15 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Menu = ({genre}) =>
-
+const Genre = (props) =>
   <li className="catalog__genres-item catalog__genres-item">
-    <a href="#" className="catalog__genres-link">{genre}</a>
+    <a href="#" className="catalog__genres-link">{props.genre}</a>
   </li>;
 
-
-Menu.propTypes = {
+Genre.propTypes = {
   genre: PropTypes.string.isRequired
 };
 
-export default Menu;
+export default Genre;

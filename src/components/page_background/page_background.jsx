@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const PageBackground = ({bgImage}) =>
-
+const PageBackground = ({backgroundImage, name}) =>
   <div className="movie-card__bg">
-    <img src={bgImage} alt="The Grand Budapest Hotel" />
+    <img src={backgroundImage} alt={name} />
   </div>;
 
 PageBackground.propTypes = {
-  bgImage: PropTypes.array.isRequired
+  backgroundImage: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired
 };
 
 export default PageBackground;
