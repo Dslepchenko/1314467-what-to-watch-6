@@ -1,4 +1,3 @@
-import {v4 as uuidv4} from 'uuid';
 import React from 'react';
 import PropTypes from 'prop-types';
 import PromoWrap from '../PromoMovieWrap/promoWrap';
@@ -12,8 +11,8 @@ import {GENRES} from '../../mocks/const';
 const renderList = (value, cb) => value.map(cb);
 
 const Startup = ({movie, movies}) => {
-  const getMovie = (item) => <Movies key = {item.id} {...item}/>;
-  const getGenre = (item) => <Genre key = {uuidv4()} genre = {item}/>;
+  const getMovie = (item) => <Movies {...item}/>;
+  const getGenre = (item) => <Genre genre={item}/>;
 
   return (
     <>
@@ -29,9 +28,9 @@ const Startup = ({movie, movies}) => {
           <div className="catalog__movies-list">
             {renderList(movies, getMovie)}
           </div>
-          <ShowMore key = {uuidv4()}/>
+          <ShowMore/>
         </section>
-        <PageFooter key = {uuidv4()}/>
+        <PageFooter/>
       </div>
     </>
   );

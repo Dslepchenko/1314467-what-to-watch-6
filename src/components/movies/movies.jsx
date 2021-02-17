@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 
 const Movies = (props) =>
-  <article className="small-movie-card catalog__movies-card">
+  <article key={props.id} className="small-movie-card catalog__movies-card">
     <div className="small-movie-card__image">
       <img src={props.preview} alt="Pulp Fiction" width="280" height="175" />
     </div>
@@ -15,7 +15,8 @@ const Movies = (props) =>
 
 Movies.propTypes = {
   name: PropTypes.string.isRequired,
-  preview: PropTypes.string.isRequired
+  preview: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired
 };
 
 export default Movies;
