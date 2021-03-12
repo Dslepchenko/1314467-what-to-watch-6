@@ -1,14 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {v4 as uuidv4} from 'uuid';
+import {GENRES} from '../../mocks/const';
 
-const Genre = (props) =>
-  <li key={uuidv4()} className="catalog__genres-item catalog__genres-item">
-    <a href="#" className="catalog__genres-link">{props.genre}</a>
-  </li>;
+const GetGenre = ({genre}) => (
+  <li className="catalog__genres-item">
+    <a href="#" className="catalog__genres-link">{genre}</a>
+  </li>
+);
 
-Genre.propTypes = {
+const GenresList = () => (
+  <ul className="catalog__genres-list">
+    {GENRES.map((genre, i) => <GetGenre key={i} genre={genre}/>)}
+  </ul>
+);
+
+GetGenre.propTypes = {
   genre: PropTypes.string.isRequired
 };
 
-export default Genre;
+export default GenresList;
