@@ -5,7 +5,7 @@ import MovieDescription from '../movie_card/movie_card_description';
 import MovieButtons from '../movie_card/movie_card_buttons';
 import Avatar from '../page_header/avatar';
 
-const PromoWrap = ({...props}) =>
+const PromoWrap = (props) =>
   <section className="movie-card">
     <PageBackground {...props} />
     <h1 className="visually-hidden">WTW</h1>

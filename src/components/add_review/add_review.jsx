@@ -14,7 +14,7 @@ const AddReview = ({movie}) =>
       <h1 className="visually-hidden">WTW</h1>
 
       <header className="page-header">
-        <Logo isLogoLight={true}/>
+        <Logo isLogoLight/>
         <ReviewBreadcrimbs {...movie}/>
         <Avatar/>
       </header>

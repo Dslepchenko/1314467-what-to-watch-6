@@ -10,7 +10,7 @@ const GetGenre = ({genre}) => (
 
 const GenresList = () => (
   <ul className="catalog__genres-list">
-    {GENRES.map((genre, i) => <GetGenre key={i} genre={genre}/>)}
+    {GENRES.map((genre) => <GetGenre key={genre} genre={genre}/>)}
   </ul>
 );
 

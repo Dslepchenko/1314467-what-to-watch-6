@@ -12,12 +12,10 @@ const MyList = ({movies}) =>
       <h1 className="page-title user-page__title">My list</h1>
       <Avatar/>
     </header>
-
     <section className="catalog">
       <h2 className="catalog__title visually-hidden">Catalog</h2>
-      <Movies movies = {movies}/>
+      <Movies movies={movies}/>
     </section>
-
     <Footer/>
   </div>;
 

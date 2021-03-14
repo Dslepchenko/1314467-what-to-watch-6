@@ -12,12 +12,10 @@ const Main = ({movie, movies}) =>
     <div className="page-content">
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
-
         <ul className="catalog__genres-list">
           <GenresList/>
         </ul>
-
-        <Movies movies = {movies}/>
+        <Movies movies={movies}/>
         <ShowMore/>
       </section>
       <PageFooter/>

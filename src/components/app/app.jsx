@@ -8,7 +8,7 @@ import SingIn from '../sing-in/sing-in';
 import AddReview from '../add_review/add_review';
 import Player from '../player/player';
 
-const App = ({...props}) =>
+const App = (props) =>
   <BrowserRouter>
     <Switch>
       <Route exact path={PATH.MAIN}>

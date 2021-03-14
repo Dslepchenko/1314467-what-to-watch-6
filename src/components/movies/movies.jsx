@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
 const getMovie = (props) =>
   <article key={props.id} className="small-movie-card catalog__movies-card">
     <div className="small-movie-card__image">
@@ -11,13 +10,6 @@ const getMovie = (props) =>
       <a className="small-movie-card__link" href="movie-page.html">{props.name}</a>
     </h3>
   </article>;
-
-
-// getMovie.propTypes = {
-//   name: PropTypes.string.isRequired,
-//   preview: PropTypes.string.isRequired,
-//   id: PropTypes.string.isRequired
-// };
 
 const Movies = ({movies}) =>
   <div className="catalog__movies-list">

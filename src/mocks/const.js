@@ -1,6 +1,6 @@
 const GENRES = [`All genres`, `Comedies`, `Crime`, `Documentary`, `Dramas`, `Horror`, `Kids & Family`, `Romance`, `Sci-Fi`, `Thrillers`];
 const STARRING = [`Bill Murray`, `Edward Norton`, `Jude Law`, `Willem Dafoe`, `Saoirse Ronan`];
-const RATING = {MIN: 0, MAX: 10};
+const RATING = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const NAMES = [
   `Fantastic Beasts: The Crimes of Grindelwald`,
   `Bohemian Rhapsody`, `Macbeth`, `Aviator`,
