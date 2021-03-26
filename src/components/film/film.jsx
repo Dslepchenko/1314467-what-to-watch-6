@@ -9,6 +9,7 @@ import PageBackground from '../page_background/page_background';
 import MovieDescription from '../movie_card/movie_card_description';
 import MovieButtons from '../movie_card/movie_card_buttons';
 import MovieOverview from '../movie_card/movie_card_overview';
+import {RoutePath} from '../../mocks/utils';
 
 const Film = ({movies, movie}) =>
   <>
@@ -23,7 +24,7 @@ const Film = ({movies, movie}) =>
         <div className="movie-card__wrap">
           <MovieDescription {...movie}>
             <MovieButtons>
-              <a href="add-review.html" className="btn movie-card__button">Add review</a>
+              <Link to={`${RoutePath.FILMS}/${movie.id}${RoutePath.REVIEW}`} className="btn movie-card__button">Add review</Link>
             </MovieButtons>
           </MovieDescription>
         </div>

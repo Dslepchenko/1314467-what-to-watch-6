@@ -38,6 +38,16 @@ const PREVIEW_IMAGES = [
   `aviator.jpg`,
   `avatar.jpg`];
 
+const MOCKS_VIDEO = [
+  `https://cdn.videvo.net/videvo_files/video/premium/2019-08/small_watermarked/170216B_147_BoyPlayingPiano_1080p_preview.webm`,
+  `https://cdn.videvo.net/videvo_files/video/free/2012-07/small_watermarked/Countdown%20Timer_preview.webm`,
+  `https://cdn.videvo.net/videvo_files/video/premium/2020-08/small_watermarked/Smart_City_Walking_preview.webm`,
+  `https://cdn.videvo.net/videvo_files/video/free/2017-08/small_watermarked/170724_15_Setangibeach_preview.webm`,
+  `https://cdn.videvo.net/videvo_files/video/premium/video0049/small_watermarked/632_632-0023_preview.webm`,
+  `https://cdn.videvo.net/videvo_files/video/free/2014-07/small_watermarked/Galaxy_With_Customization_preview.webm`,
+  `https://cdn.videvo.net/videvo_files/video/premium/video0299/small_watermarked/601-1_601-1165_preview.webm`,
+  `https://cdn.videvo.net/videvo_files/video/premium/video0239/small_watermarked/04-05_day_203_zayas_preview.webm`];
+
 const DESCRIPTIONS = [
   `In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge Gustave H. (Ralph Fiennes).
   Zero, a junior lobby boy, becomes Gustave's friend and protege.`];
@@ -50,4 +60,4 @@ const RUN_TIME = {MIN: 60, MAX: 180};
 const RELEASED = {MIN_YEAR: 1970, MAX_YEAR: 2021};
 const QUANTITY_MOVIES = 16;
 
-export {GENRES, STARRING, RATING, NAMES, PREVIEW_IMAGES, DESCRIPTIONS, SCORE_COUNT, RUN_TIME, RELEASED, DIRECTORS, QUANTITY_MOVIES, IMG};
+export {GENRES, STARRING, RATING, NAMES, PREVIEW_IMAGES, DESCRIPTIONS, SCORE_COUNT, RUN_TIME, RELEASED, DIRECTORS, QUANTITY_MOVIES, IMG, MOCKS_VIDEO};

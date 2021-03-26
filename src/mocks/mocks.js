@@ -1,5 +1,5 @@
 import {v4 as uuidv4} from 'uuid';
-import {GENRES, STARRING, RATING, NAMES, PREVIEW_IMAGES, DESCRIPTIONS, SCORE_COUNT, RUN_TIME, RELEASED, DIRECTORS, QUANTITY_MOVIES, IMG} from '../mocks/const';
+import {GENRES, STARRING, RATING, NAMES, PREVIEW_IMAGES, DESCRIPTIONS, SCORE_COUNT, RUN_TIME, RELEASED, DIRECTORS, QUANTITY_MOVIES, IMG, MOCKS_VIDEO} from '../mocks/const';
 import {getRandomValue, getRandomValueInRange, getRandomBoolean} from '../mocks/utils';
 
 const getRandomMovie = () => ({
@@ -10,7 +10,7 @@ const getRandomMovie = () => ({
   "backgroundImage": `img/bg-the-grand-budapest-hotel.jpg`,
   "backgroundColor": `#ffffff`,
   "video_link": ``,
-  "preview_video_link": ``,
+  "preview_video_link": getRandomValue(MOCKS_VIDEO),
   "description": DESCRIPTIONS,
   "rating": getRandomValueInRange(RATING.MIN, RATING.MAX),
   "scoresCount": getRandomValueInRange(SCORE_COUNT.MIN, SCORE_COUNT.MAX),
@@ -23,5 +23,7 @@ const getRandomMovie = () => ({
 });
 
 const getMovies = () => new Array(QUANTITY_MOVIES).fill().map(getRandomMovie);
-export {getRandomMovie, getMovies};
+const getMovieById = ({match}) => getMovies().find(({id}) => id.toString() === match.params.id);
+
+export {getRandomMovie, getMovies, getMovieById};
 

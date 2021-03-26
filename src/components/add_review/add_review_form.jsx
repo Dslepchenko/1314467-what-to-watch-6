@@ -20,7 +20,7 @@ const AddForm = () =>
     <form action="#" className="add-review__form">
       <div className="rating">
         <div className="rating__stars">
-          {Array(RATING.length).fill().map((item, i) => <GetRatingStars key={i} index={i}/>)};
+          {Array(RATING.length).fill().map((item, i) => <GetRatingStars key={i} index={i}/>)}
         </div>
       </div>
       <div className="add-review__text">

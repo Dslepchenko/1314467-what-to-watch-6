@@ -5,12 +5,12 @@ const getObjectsArray = (number, obj) => new Array(number).fill().map(obj);
 
 export {getRandomValue, getRandomValueInRange, getRandomBoolean, getObjectsArray};
 
-export const PATH = {
+export const RoutePath = {
   MAIN: `/`,
   SIGN_IN: `/login`,
   MY_LIST: `/mylist`,
-  FILM: `/films/:id`,
-  REVIEW: `/films/:id/review`,
-  PLAYER: `/player/:id`
+  FILMS: `/films`,
+  REVIEW: `/review`,
+  PLAYER: `/player`
 };
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
-import {PATH} from '../../mocks/utils';
+import {RoutePath} from '../../mocks/utils';
 import Film from '../film/film';
 import Main from '../Main/Main';
 import MyList from '../my-list/my-list';
@@ -11,23 +11,23 @@ import Player from '../player/player';
 const App = (props) =>
   <BrowserRouter>
     <Switch>
-      <Route exact path={PATH.MAIN}>
+      <Route exact path={RoutePath.MAIN}>
         <Main {...props}/>
       </Route>
-      <Route exact path={PATH.SIGN_IN}>
+      <Route exact path={RoutePath.SIGN_IN}>
         <SingIn/>
       </Route>
-      <Route exact path={PATH.FILM}>
+      <Route exact path={`${RoutePath.FILMS}/:id`}>
         <Film {...props}/>
       </Route>
-      <Route exact path={PATH.MY_LIST}>
+      <Route exact path={RoutePath.MY_LIST}>
         <MyList {...props}/>
       </Route>
-      <Route exact path={PATH.REVIEW}>
+      <Route exact path={`${RoutePath.FILMS}/:id${RoutePath.REVIEW}`}>
         <AddReview {...props}/>
       </Route>
     </Switch>
-    <Route exact path={PATH.PLAYER}>
+    <Route exact path={RoutePath.PLAYER}>
       <Player/>
     </Route>
   </BrowserRouter>;

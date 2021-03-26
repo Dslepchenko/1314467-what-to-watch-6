@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {RoutePath} from '../../mocks/utils';
+import {Link} from 'react-router-dom';
 
 const getMovie = (props) =>
   <article key={props.id} className="small-movie-card catalog__movies-card">
@@ -7,7 +9,7 @@ const getMovie = (props) =>
       <img src={props.preview} alt="Pulp Fiction" width="280" height="175" />
     </div>
     <h3 className="small-movie-card__title">
-      <a className="small-movie-card__link" href="movie-page.html">{props.name}</a>
+      <Link to={`${RoutePath.FILMS}/${props.id}`} className="small-movie-card__link">{props.name}</Link>
     </h3>
   </article>;
 
