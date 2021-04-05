@@ -34,9 +34,13 @@ const App = (props) =>
           />
         )}
       />
-      <Route exact path={`${RoutePaths.PLAYER}/:id`}>
-        <Player/>
-      </Route>
+      <Route exact path={`${RoutePaths.PLAYER}/:id`}
+        render={(routeProps) => (
+          <Player
+            {...getMovieById(routeProps)}
+          />
+        )}
+      />
     </Switch>
   </BrowserRouter>;
 
