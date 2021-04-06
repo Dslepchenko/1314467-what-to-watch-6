@@ -1,16 +1,28 @@
-const getRandomValue = (arr) => arr[Math.floor(Math.random() * arr.length)];
-const getRandomValueInRange = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
-const getRandomBoolean = () => Boolean(getRandomValue(0, 1));
-const getObjectsArray = (number, obj) => new Array(number).fill().map(obj);
+import {Movies} from '../mocks/mocks';
 
-export {getRandomValue, getRandomValueInRange, getRandomBoolean, getObjectsArray};
+export const getRandomIntInRange = (a = 1, b = 0) => {
+  const lower = Math.ceil(Math.min(a, b));
+  const upper = Math.floor(Math.max(a, b));
+  return Math.floor(lower + Math.random() * (upper - lower + 1));
+};
 
-export const RoutePath = {
+export const getRandomInt = (maxNumber) => getRandomIntInRange(maxNumber - 1);
+
+export const findMovieById = (item) => Movies.find(({id}) => id.toString() === item.toString());
+
+export const getSimilarMovies = (currentMovieId, currentMovieGenre) => {
+  const allMoviesSameGenre = Movies.filter(({id, genre}) => genre === currentMovieGenre && id !== currentMovieId);
+  const similarMoviesToShow = allMoviesSameGenre.slice(0, 10);
+  return similarMoviesToShow;
+};
+
+export const RoutePaths = {
   MAIN: `/`,
   SIGN_IN: `/login`,
   MY_LIST: `/mylist`,
-  FILMS: `/films`,
+  MOVIE_PAGE: `/films`,
   REVIEW: `/review`,
   PLAYER: `/player`
 };
 
+export const tabsNames = [`Overview`, `Details`, `Reviews`];
