@@ -6,15 +6,15 @@ import MoviePage from './Movie_Page/Movie_Page';
 import AddReview from './Review/Add_Review';
 import SingIn from './Sing-In';
 import Player from './Player';
-import {getMovieById, RoutePaths} from '../mocks/utils';
+import {findMovieById, RoutePaths} from '../mocks/utils';
 
 const App = (props) =>
   <BrowserRouter>
     <Switch>
-      <Route exact path={`/`}>
+      <Route exact path={RoutePaths.MAIN}>
         <Main {...props}/>
       </Route>
-      <Route exact path={`/login`}>
+      <Route exact path={RoutePaths.SIGN_IN}>
         <SingIn/>
       </Route>
       <Route exact path={RoutePaths.MY_LIST}>
@@ -23,21 +23,21 @@ const App = (props) =>
       <Route exact path={`${RoutePaths.MOVIE_PAGE}/:id`}
         render={(routeProps) => (
           <MoviePage
-            {...getMovieById(routeProps)}
+            {...routeProps}
           />
         )}
       />
       <Route exact path={`${RoutePaths.MOVIE_PAGE}/:id${RoutePaths.REVIEW}`}
         render={(routeProps) => (
           <AddReview
-            {...getMovieById(routeProps)}
+            {...routeProps}
           />
         )}
       />
       <Route exact path={`${RoutePaths.PLAYER}/:id`}
         render={(routeProps) => (
           <Player
-            {...getMovieById(routeProps)}
+            {...findMovieById(routeProps)}
           />
         )}
       />

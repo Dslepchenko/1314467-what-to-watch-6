@@ -8,7 +8,7 @@ export const getRandomIntInRange = (a = 1, b = 0) => {
 
 export const getRandomInt = (maxNumber) => getRandomIntInRange(maxNumber - 1);
 
-export const getMovieById = ({match}) => Movies.find(({id}) => id.toString() === match.params.id);
+export const findMovieById = (item) => Movies.find(({id}) => id.toString() === item.toString());
 
 export const getSimilarMovies = (currentMovieId, currentMovieGenre) => {
   const allMoviesSameGenre = Movies.filter(({id, genre}) => genre === currentMovieGenre && id !== currentMovieId);
@@ -24,3 +24,5 @@ export const RoutePaths = {
   REVIEW: `/review`,
   PLAYER: `/player`
 };
+
+export const tabsNames = [`Overview`, `Details`, `Reviews`];

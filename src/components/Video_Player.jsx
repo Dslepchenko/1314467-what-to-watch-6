@@ -7,8 +7,10 @@ const VideoPlayer = ({previewImg, previewLink}) => {
   useEffect(() =>{
     videoRef.current.play();
     return () => {
-      videoRef.current.pause();
-      videoRef.current = null;
+      if (videoRef.current) {
+        videoRef.current.pause();
+        videoRef.current = null;
+      }
     };
   });
 

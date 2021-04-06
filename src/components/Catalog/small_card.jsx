@@ -9,13 +9,13 @@ const SmallCard = ({movieId, name, preview_image: previewImg, preview_video_link
   const [timer, setTimer] = useState(null);
 
   useEffect(() => {
+
     return () =>{
       if (timer !== null) {
         clearTimeout(timer);
       }
     };
   });
-
 
   return (
     <article
